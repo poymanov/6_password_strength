@@ -4,9 +4,9 @@
 
 # Предварительные настройки
 
-Для функционала проверки пароля по списку нерекомендуемых слов требуется разместить файл со списком слов в директории проекта под именем `blacklist.txt`. 
+Для функционала проверки пароля по списку нежелательных слов рекомедуется использовать словарь со списком таких слов.
 
-Список слов можно составить самостоятельно или воспользоваться [готовым](https://github.com/danielmiessler/SecLists/tree/master/Passwords).
+Словарь можно составить самостоятельно или воспользоваться [готовым](https://github.com/danielmiessler/SecLists/tree/master/Passwords).
 
 # Как запустить
 
@@ -15,7 +15,7 @@
 **Запуск на Linux**
 
 ```bash
-$ python password_strength.py # или python3, в зависимости от настроек системы
+$ python password_strength.py --blacklist file.txt # или python3, в зависимости от настроек системы
 
 # cкрипт предложит ввести пароль
 Enter the password to calculate its complexity:
@@ -23,8 +23,11 @@ Enter the password to calculate its complexity:
 # и выведет результат анализа
 Your password rating is 3 (Weak)
 
-# скрипт выведет прежупреждение, если файл со списком нерекомендуемых слов не был использован
-Can't find blacklist file. This check will be skipped
+# скрипт выведет предупреждение, если файл со списком нерекомендуемых слов не был использован
+$ python password_strength.py
+Enter the password to calculate its complexity:
+Failed to read blacklist file. This check will be skipped
+Your password rating is 3 (Weak)
 ```
 
 Запуск на **Windows** происходит аналогично.
